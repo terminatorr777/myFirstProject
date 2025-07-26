@@ -10,16 +10,16 @@ st.set_page_config(page_title="多文档问答助手", page_icon="📄")
 st.title("📄 文档智能问答系统")
 
 # 初始化 API（建议通过 secrets 或环境变量）
-# client = OpenAI(
-#     api_key=os.getenv("DEEPSEEK_API_KEY", "sk-your-secret-key"),
-#     base_url="https://api.deepseek.com/v1"
-# )
-
-
 client = OpenAI(
-    api_key="sk-219e4cd5af3041f9b9368fe4f06d7de5",  # 替换为DeepSeek实际密钥
-    base_url="https://api.deepseek.com/v1"  # 添加API端点
+    api_key=st.secrets["DEEPSEEK_API_KEY"],   # 从 secrets 获取
+    base_url="https://api.deepseek.com/v1"
 )
+
+
+# client = OpenAI(
+#     api_key="sk-219e4cd5af3041f9b9368fe4f06d7de5",  # 替换为DeepSeek实际密钥
+#     base_url="https://api.deepseek.com/v1"  # 添加API端点
+# )
 
 # ------------------ 会话状态初始化 ------------------
 if "history" not in st.session_state:
